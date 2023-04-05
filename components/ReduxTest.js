@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {getPosts, getRunningQueriesThunk, useGetPostsQuery} from "../redux/features/postSlice";
+import {getPosts, getRunningQueriesThunk, postApi, useGetPostsQuery} from "../redux/features/postSlice";
 import {wrapper} from "../redux/store";
 
 function Blog({results}) {
@@ -18,10 +18,10 @@ function Blog({results}) {
 // It won't be called on client-side, so you can even do
 // direct database queries.
 export const getServerSideProps = wrapper.getServerSideProps((store) => async (context) => {
-  const results = await store.dispatch(getPosts.initiate());
+  const results = await store.dispatch(postApi.endpoints.getPosts.initiate());
 
-  const data = await Promise.all(store.dispatch(getRunningQueriesThunk()));
-
+  const data = await Promise.all(store.dispatch(postApi.util.getRunningQueriesThunk()));
+  console.log(data);
   return {
     props: {results},
   };
