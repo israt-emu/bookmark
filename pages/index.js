@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import InputField from "../components/InputField";
+import Blog from "../components/ReduxTest";
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -13,6 +14,7 @@ export default function Home() {
 
       <main>
         <InputField />
+        <Blog />
       </main>
     </div>
   );
