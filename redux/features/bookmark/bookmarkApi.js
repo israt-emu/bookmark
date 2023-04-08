@@ -1,6 +1,6 @@
-import {apiSlice} from "./apiSlice";
+import {apiSlice} from "../apiSlice";
 
-export const postApi = apiSlice.injectEndpoints({
+export const bookmarkApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getPosts: builder.query({
       query: () => ({
@@ -13,5 +13,5 @@ export const postApi = apiSlice.injectEndpoints({
 export const {
   useGetPostsQuery,
   util: {getRunningQueriesThunk},
-} = postApi;
-export const {getPosts} = postApi.endpoints;
+} = bookmarkApi;
+export const {getPosts} = bookmarkApi.endpoints;

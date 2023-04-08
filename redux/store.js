@@ -1,13 +1,13 @@
-import {configureStore, ThunkAction, Action} from "@reduxjs/toolkit";
+import {configureStore} from "@reduxjs/toolkit";
 import {createWrapper} from "next-redux-wrapper";
 import {apiSlice} from "./features/apiSlice";
-import postReducer from "./features/postSlice";
+import bookmarkReducer from "./features/bookmark/bookmarkSlice";
 
 export const makeStore = () =>
   configureStore({
     reducer: {
       [apiSlice.reducerPath]: apiSlice.reducer,
-      posts: postReducer,
+      bookmark: bookmarkReducer,
     },
     devTools: process.env.NODE_ENV !== "production",
     middleware: (getDefaultMiddlewares) => getDefaultMiddlewares().concat(apiSlice.middleware),
